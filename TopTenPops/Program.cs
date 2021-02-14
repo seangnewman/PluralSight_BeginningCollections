@@ -15,18 +15,21 @@ namespace TopTenPops
             CsvReader reader = new CsvReader(filePath);
 
             //Country[] countries = reader.ReadFirstNCountries(10);
-            List<Country> countries = reader.ReadAllCountries();
+            //List<Country> countries = reader.ReadAllCountries();
+            Dictionary<string, Country> countries = reader.ReadAllCountries();
 
-            Country lilliput = new Country("Lilliput", "LIL", "Somewhere", 2_000_000);
-            int lilliputIndex = countries.FindIndex(x => x.Population < 2_000_000);
-            countries.Insert(lilliputIndex, lilliput);
-            countries.RemoveAt(lilliputIndex);
+            Console.WriteLine("Which country code do you want to look up? ");
+            string userInput = Console.ReadLine();
 
+            bool gotCountry = countries.TryGetValue(userInput, out Country country);
 
-            foreach (var country in countries)
+            if (!gotCountry)
             {
-                //Console.WriteLine($"{country.Population}: {country.Name}");
-                Console.WriteLine($"{PopulationFormatter.FormatPopulation(country.Population).PadLeft(15)} : {country.Name}");
+                Console.WriteLine($"Sorrry, there is no country code with the value {userInput}");
+            }
+            else
+            {
+                Console.WriteLine($"{country.Name} has a population {PopulationFormatter.FormatPopulation(country.Population)}");
             }
 
             Console.WriteLine($"{countries.Count} countries");

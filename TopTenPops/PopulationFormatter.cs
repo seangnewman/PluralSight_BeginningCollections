@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TopTenPops
 {
@@ -17,7 +13,7 @@ namespace TopTenPops
 
             int popRounded = RoundPopulation4(population);
 
-            return $"{popRounded: ###,###,###,###}".Trim(); 
+            return $"{popRounded: ###,###,###,###}".Trim();
         }
 
 
@@ -25,7 +21,7 @@ namespace TopTenPops
         private static int RoundPopulation4(int population)
         {
             // work out what rounding accuracy we need if we are to round to 4 significant figures
-            int accuracy = Math.Max( (int) (GetHighestPowerofTen(population) / 10_000L), 1);
+            int accuracy = Math.Max((int)(GetHighestPowerofTen(population) / 10_000L), 1);
 
             // now do the rounding
             return RoundToNearest(population, accuracy);
@@ -62,7 +58,7 @@ namespace TopTenPops
         private static long GetHighestPowerofTen(int population)
         {
             long result = 1;
-            while ( population > 0)
+            while (population > 0)
             {
                 population /= 10;
                 result *= 10;

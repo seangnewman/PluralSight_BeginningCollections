@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TopTenPops", "TopTenPops\To
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DaysOfWeekList", "DaysOfWeekList\DaysOfWeekList.csproj", "{F3D6BDE7-F85F-4503-9B32-874D86F73161}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DictSnippets", "DictSnippets\DictSnippets.csproj", "{60F4AAEE-5B96-45A2-9D46-3DD04ED14266}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{F3D6BDE7-F85F-4503-9B32-874D86F73161}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F3D6BDE7-F85F-4503-9B32-874D86F73161}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F3D6BDE7-F85F-4503-9B32-874D86F73161}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60F4AAEE-5B96-45A2-9D46-3DD04ED14266}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60F4AAEE-5B96-45A2-9D46-3DD04ED14266}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60F4AAEE-5B96-45A2-9D46-3DD04ED14266}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60F4AAEE-5B96-45A2-9D46-3DD04ED14266}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
