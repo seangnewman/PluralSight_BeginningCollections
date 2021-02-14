@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DaysOfWeek", "DaysOfWeek\DaysOfWeek.csproj", "{28B07B29-EBEA-44D2-A25D-A9ACC917812F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NthDay", "NthDay\NthDay.csproj", "{09B574F1-DFAC-4AFA-8B4D-2BD108DE6A9A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TopTenPops", "TopTenPops\TopTenPops.csproj", "{9F1DE88E-A3B9-4458-A32F-B6C25FD47B09}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{28B07B29-EBEA-44D2-A25D-A9ACC917812F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28B07B29-EBEA-44D2-A25D-A9ACC917812F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28B07B29-EBEA-44D2-A25D-A9ACC917812F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28B07B29-EBEA-44D2-A25D-A9ACC917812F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09B574F1-DFAC-4AFA-8B4D-2BD108DE6A9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09B574F1-DFAC-4AFA-8B4D-2BD108DE6A9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09B574F1-DFAC-4AFA-8B4D-2BD108DE6A9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09B574F1-DFAC-4AFA-8B4D-2BD108DE6A9A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F1DE88E-A3B9-4458-A32F-B6C25FD47B09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F1DE88E-A3B9-4458-A32F-B6C25FD47B09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F1DE88E-A3B9-4458-A32F-B6C25FD47B09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F1DE88E-A3B9-4458-A32F-B6C25FD47B09}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DA12ECE8-EC2F-4341-9B28-0FBA33F60BB6}
+	EndGlobalSection
+EndGlobal
