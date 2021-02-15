@@ -12,6 +12,7 @@ namespace TopTenPops
             this._csvFilePath = csvFilePath;
         }
 
+
         public Country[] ReadFirstNCountries(int nCountries)
         {
             Country[] countries = new Country[nCountries];
@@ -31,30 +32,10 @@ namespace TopTenPops
 
             return countries;
         }
-
-        //public List<Country> ReadAllCountries()
-        //{
-        //    List<Country> countries = new List<Country>();
-
-        //    using (StreamReader sr = new StreamReader(_csvFilePath))
-        //    {
-        //        // Discard the header line
-        //        sr.ReadLine();
-
-        //        string csvLine;
-
-        //        while ((csvLine = sr.ReadLine()) != null)
-        //        {
-        //            countries.Add(ReadCountryFromCsvLine(csvLine));
-        //        }
-
-        //        return countries;
-        //    }
-        //}
-
-        public Dictionary<string, Country>  ReadAllCountries()
+        #region  List<Country> ReadAllCountries()
+        public List<Country> ReadAllCountries()
         {
-            var countries = new Dictionary<string, Country>();
+            List<Country> countries = new List<Country>();
 
             using (StreamReader sr = new StreamReader(_csvFilePath))
             {
@@ -65,13 +46,35 @@ namespace TopTenPops
 
                 while ((csvLine = sr.ReadLine()) != null)
                 {
-                    Country country = ReadCountryFromCsvLine(csvLine);
-                    countries.Add(country.Code, country);
+                    countries.Add(ReadCountryFromCsvLine(csvLine));
                 }
 
                 return countries;
             }
         }
+        #endregion
+        #region Dictionary<string, Country>  ReadAllCountries()
+        //public Dictionary<string, Country>  ReadAllCountries()
+        //{
+        //    var countries = new Dictionary<string, Country>();
+
+        //    using (StreamReader sr = new StreamReader(_csvFilePath))
+        //    {
+        //        // Discard the header line
+        //        sr.ReadLine();
+
+        //        string csvLine;
+
+        //        while ((csvLine = sr.ReadLine()) != null)
+        //        {
+        //            Country country = ReadCountryFromCsvLine(csvLine);
+        //            countries.Add(country.Code, country);
+        //        }
+
+        //        return countries;
+        //    }
+        //}
+        #endregion
         //public Country ReadCountryFromCsvLine(string csvLine)
         //{
         //    string[] parts = csvLine.Split(',');
@@ -117,6 +120,22 @@ namespace TopTenPops
             return new Country(name, code, region, population);
 
             
+        }
+
+        //public void RemoveCommaCountries(List<Country> countries)
+        //{
+        //    for (int i = countries.Count - 1; i >= 0 ; i--)
+        //    {
+        //        if (countries[i].Name.Contains(","))
+        //        {
+        //            countries.RemoveAt(i);
+        //        }
+        //    }
+        //}
+
+        public void RemoveCommaCountries(List<Country> countries)
+        {
+            countries.RemoveAll( c => c.Name.Contains(",")); 
         }
 
     }
