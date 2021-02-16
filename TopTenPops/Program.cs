@@ -156,34 +156,82 @@ namespace TopTenPops
 
             #region Systematically Removing Elements and keeping the index in sync
 
-            reader.RemoveCommaCountries(countries);
+            //reader.RemoveCommaCountries(countries);
 
-            Console.WriteLine("Enter number of countries to display > ");
-            bool inputIsInt = int.TryParse(Console.ReadLine(), out int userInput);
+            //Console.WriteLine("Enter number of countries to display > ");
+            //bool inputIsInt = int.TryParse(Console.ReadLine(), out int userInput);
 
-            if (!inputIsInt || userInput <= 0)
-            {
-                Console.WriteLine("You must type in a positive integer.  Exiting");
-                return;
-            }
+            //if (!inputIsInt || userInput <= 0)
+            //{
+            //    Console.WriteLine("You must type in a positive integer.  Exiting");
+            //    return;
+            //}
 
-            int maxToDisplay = userInput;
+            //int maxToDisplay = userInput;
 
-            for (int i = 0; i < countries.Count; i++)
-            {
-                if (i > 0 && (i % maxToDisplay == 0))
-                {
-                    Console.WriteLine("Hit return to continue, anything else to quit :");
-                    if (Console.ReadLine() != "")
-                    {
-                        break;
-                    }
-                }
-                Country country = countries[i];
-                Console.WriteLine($"{i + 1} : {PopulationFormatter.FormatPopulation(country.Population).PadLeft(15)}: {country.Name}");
-            }
+            //for (int i = 0; i < countries.Count; i++)
+            //{
+            //    if (i > 0 && (i % maxToDisplay == 0))
+            //    {
+            //        Console.WriteLine("Hit return to continue, anything else to quit :");
+            //        if (Console.ReadLine() != "")
+            //        {
+            //            break;
+            //        }
+            //    }
+            //    Country country = countries[i];
+            //    Console.WriteLine($"{i + 1} : {PopulationFormatter.FormatPopulation(country.Population).PadLeft(15)}: {country.Name}");
+            //}
             #endregion
             #region Removing elements with RemoveAll
+            #endregion
+            #region limiting how many results with Take
+            //foreach (var country in countries.Take(10))
+            //{
+            //    Console.WriteLine($"{PopulationFormatter.FormatPopulation(country.Population).PadLeft(15)}: {country.Name}");
+            //}
+            #endregion
+            #region Ordering Data with OrderBy
+            //foreach (var country in countries.OrderBy(c => c.Name))
+            //{
+            //    Console.WriteLine($"{PopulationFormatter.FormatPopulation(country.Population).PadLeft(15)}: {country.Name}");
+            //}
+
+            #endregion
+
+            #region Chaining LINQ Methods
+            //foreach (var country in countries.OrderBy(c => c.Name).Take(10))
+            //{
+            //    Console.WriteLine($"{PopulationFormatter.FormatPopulation(country.Population).PadLeft(15)}: {country.Name}");
+            //}
+            #endregion
+            #region Filtering Data with Where
+            //foreach (var country in countries.Where( c => !c.Name.Contains(",")).Take(20))
+            //{
+            //    Console.WriteLine($"{PopulationFormatter.FormatPopulation(country.Population).PadLeft(15)}: {country.Name}");
+            //}
+            #endregion
+
+            #region LINQ Query Syntax
+            var filteredCountries = countries.Where(c => !c.Name.Contains(","));//.Take(20);
+
+            var filteredCountries2 = from country in countries
+                                                    where !country.Name.Contains(",")
+                                                     select country;
+
+            
+
+            foreach (var country in filteredCountries2)
+            {
+                Console.WriteLine($"{PopulationFormatter.FormatPopulation(country.Population).PadLeft(15)}: {country.Name}");
+            }
+
+
+            foreach (var country in filteredCountries2.Take(30))
+            {
+                Console.WriteLine($"{PopulationFormatter.FormatPopulation(country.Population).PadLeft(15)}: {country.Name}");
+            }
+
             #endregion
             // Console.WriteLine($"{countries.Count} countries");
         }
