@@ -15,7 +15,7 @@ namespace TopTenPops
             CsvReader reader = new CsvReader(filePath);
 
             //Country[] countries = reader.ReadFirstNCountries(10);
-            List<Country> countries = reader.ReadAllCountries();
+            //List<Country> countries = reader.ReadAllCountries();
             #region ReadAllCountries() lookup using Dictionary
             //Dictionary<string, Country> countries = reader.ReadAllCountries();
 
@@ -213,26 +213,52 @@ namespace TopTenPops
             #endregion
 
             #region LINQ Query Syntax
-            var filteredCountries = countries.Where(c => !c.Name.Contains(","));//.Take(20);
+            //var filteredCountries = countries.Where(c => !c.Name.Contains(","));//.Take(20);
 
-            var filteredCountries2 = from country in countries
-                                                    where !country.Name.Contains(",")
-                                                     select country;
+            //var filteredCountries2 = from country in countries
+            //                                        where !country.Name.Contains(",")
+            //                                         select country;
 
-            
 
-            foreach (var country in filteredCountries2)
+
+            //foreach (var country in filteredCountries2)
+            //{
+            //    Console.WriteLine($"{PopulationFormatter.FormatPopulation(country.Population).PadLeft(15)}: {country.Name}");
+            //}
+
+
+            //foreach (var country in filteredCountries2.Take(30))
+            //{
+            //    Console.WriteLine($"{PopulationFormatter.FormatPopulation(country.Population).PadLeft(15)}: {country.Name}");
+            //}
+
+            #endregion
+
+            #region Enumerating Dictionary Keys
+            Dictionary<string, List<Country>> countries = reader.ReadAllCountries();
+
+            foreach (var region in countries.Keys)
             {
-                Console.WriteLine($"{PopulationFormatter.FormatPopulation(country.Population).PadLeft(15)}: {country.Name}");
+                Console.WriteLine(region);
             }
 
+            Console.WriteLine("Which of the above regions do you want? ");
+            string chosenRegion = Console.ReadLine();
 
-            foreach (var country in filteredCountries2.Take(30))
+            if (countries.ContainsKey(chosenRegion))
             {
-                Console.WriteLine($"{PopulationFormatter.FormatPopulation(country.Population).PadLeft(15)}: {country.Name}");
+                foreach (var country in countries[chosenRegion].Take(10))
+                {
+                    Console.WriteLine($"{PopulationFormatter.FormatPopulation(country.Population),15}: {country.Name}");
+                }
+            }
+            else
+            {
+                Console.WriteLine("That is not a valid region");
             }
 
             #endregion
+
             // Console.WriteLine($"{countries.Count} countries");
         }
     }
