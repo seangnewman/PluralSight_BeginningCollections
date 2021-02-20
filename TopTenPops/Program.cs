@@ -15,6 +15,8 @@ namespace TopTenPops
             CsvReader reader = new CsvReader(filePath);
 
             //Country[] countries = reader.ReadFirstNCountries(10);
+
+           IList<Country> countries = reader.ReadFirstNCountries(10);     //
             //List<Country> countries = reader.ReadAllCountries();
             #region ReadAllCountries() lookup using Dictionary
             //Dictionary<string, Country> countries = reader.ReadAllCountries();
@@ -34,10 +36,10 @@ namespace TopTenPops
             //}
             #endregion
             #region foreach (var country in countries)
-            //foreach (var country in countries)
-            //{
-            //    Console.WriteLine($"{PopulationFormatter.FormatPopulation(country.Population).PadLeft(15)}: {country.Name}");
-            //}
+            foreach (var country in countries)
+            {
+                Console.WriteLine($"{PopulationFormatter.FormatPopulation(country.Population).PadLeft(15)}: {country.Name}");
+            }
             #endregion
 
             #region loop termination conditions
@@ -235,27 +237,27 @@ namespace TopTenPops
             #endregion
 
             #region Enumerating Dictionary Keys
-            Dictionary<string, List<Country>> countries = reader.ReadAllCountries();
+            //Dictionary<string, List<Country>> countries = reader.ReadAllCountries();
 
-            foreach (var region in countries.Keys)
-            {
-                Console.WriteLine(region);
-            }
+            //foreach (var region in countries.Keys)
+            //{
+            //    Console.WriteLine(region);
+            //}
 
-            Console.WriteLine("Which of the above regions do you want? ");
-            string chosenRegion = Console.ReadLine();
+            //Console.WriteLine("Which of the above regions do you want? ");
+            //string chosenRegion = Console.ReadLine();
 
-            if (countries.ContainsKey(chosenRegion))
-            {
-                foreach (var country in countries[chosenRegion].Take(10))
-                {
-                    Console.WriteLine($"{PopulationFormatter.FormatPopulation(country.Population),15}: {country.Name}");
-                }
-            }
-            else
-            {
-                Console.WriteLine("That is not a valid region");
-            }
+            //if (countries.ContainsKey(chosenRegion))
+            //{
+            //    foreach (var country in countries[chosenRegion].Take(10))
+            //    {
+            //        Console.WriteLine($"{PopulationFormatter.FormatPopulation(country.Population),15}: {country.Name}");
+            //    }
+            //}
+            //else
+            //{
+            //    Console.WriteLine("That is not a valid region");
+            //}
 
             #endregion
 

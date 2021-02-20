@@ -16,25 +16,25 @@ namespace TopTenPops
 
 
 
-        //public Country[] ReadFirstNCountries(int nCountries)
-        //{
-        //    Country[] countries = new Country[nCountries];
+        public Country[] ReadFirstNCountries(int nCountries)
+        {
+            Country[] countries = new Country[nCountries];
 
-        //    using (StreamReader sr = new StreamReader(_csvFilePath))
-        //    {
-        //        // Discard the header line
-        //        sr.ReadLine();
+            using (StreamReader sr = new StreamReader(_csvFilePath))
+            {
+                // Discard the header line
+                sr.ReadLine();
 
-        //        for (int i = 0; i < nCountries; i++)
-        //        {
-        //            string csvLine = sr.ReadLine();
-        //            countries[i] = ReadCountryFromCsvLine(csvLine);
-        //        }
+                for (int i = 0; i < nCountries; i++)
+                {
+                    string csvLine = sr.ReadLine();
+                    countries[i] = ReadCountryFromCsvLine(csvLine);
+                }
 
-        //    }
+            }
 
-        //    return countries;
-        //}
+            return countries;
+        }
         #region  List<Country> ReadAllCountries()
         //public List<Country> ReadAllCountries()
         //{
